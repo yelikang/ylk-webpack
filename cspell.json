@@ -277,7 +277,8 @@
     "Xmodule",
     "xxhash",
     "xxhashjs",
-    "Yann"
+    "Yann",
+    "readonly"
   ],
   "ignoreRegExpList": [
     "/Author.+/",
