@@ -4951,6 +4951,7 @@ declare class JavascriptParser extends Parser {
 		expressionConditionalOperator: SyncBailHook<[Expression], boolean | void>;
 		expressionLogicalOperator: SyncBailHook<[Expression], boolean | void>;
 		program: SyncBailHook<[Program, Comment[]], boolean | void>;
+		terminate: SyncBailHook<[ReturnStatement | ThrowStatement], boolean | void>;
 		finish: SyncBailHook<[Program, Comment[]], boolean | void>;
 	}>;
 	sourceType: "module" | "script" | "auto";
@@ -10320,6 +10321,12 @@ declare interface ScopeInfo {
 	isStrict: boolean;
 	isAsmJs: boolean;
 	inTry: boolean;
+
+	/**
+	 * false for unknown state
+	 */
+	executedPath: boolean;
+	returned: boolean;
 }
 declare interface Selector<A, B> {
 	(input: A): B;
