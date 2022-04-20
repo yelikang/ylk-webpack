@@ -5516,11 +5516,6 @@ declare interface JavascriptParserOptions {
 	exprContextRequest?: string;
 
 	/**
-	 * Enable/Disable extracting source map.
-	 */
-	extractSourceMap?: boolean;
-
-	/**
 	 * Enable/disable parsing of EcmaScript Modules syntax.
 	 */
 	harmony?: boolean;
@@ -6673,7 +6668,12 @@ declare interface MinChunkSizePluginOptions {
 	minChunkSize: number;
 }
 declare class Module extends DependenciesBlock {
-	constructor(type: string, context?: string, layer?: string);
+	constructor(
+		type: string,
+		context?: string,
+		layer?: string,
+		extractSourceMap?: boolean
+	);
 	type: string;
 	context: null | string;
 	layer: null | string;
@@ -6683,6 +6683,7 @@ declare class Module extends DependenciesBlock {
 	factoryMeta?: object;
 	useSourceMap: boolean;
 	useSimpleSourceMap: boolean;
+	extractSourceMap: boolean;
 	buildMeta: BuildMeta;
 	buildInfo: Record<string, any>;
 	presentationalDependencies?: Dependency[];
@@ -7310,6 +7311,11 @@ declare interface ModuleSettings {
 	resolve?: ResolveOptionsWebpackOptions;
 
 	/**
+	 * Enable/Disable extracting source map.
+	 */
+	extractSourceMap?: boolean;
+
+	/**
 	 * Options for parsing.
 	 */
 	parser?: { [index: string]: any };
@@ -7631,6 +7637,11 @@ declare interface NormalModuleCreateData {
 	 * an optional layer in which the module is
 	 */
 	layer?: string;
+
+	/**
+	 * should try to extract source map
+	 */
+	extractSourceMap?: boolean;
 
 	/**
 	 * module type
@@ -9999,6 +10010,11 @@ declare interface RuleSetRule {
 		| ((value: string) => boolean)
 		| RuleSetLogicalConditionsAbsolute
 		| RuleSetConditionAbsolute[];
+
+	/**
+	 * Enable/Disable extracting source map.
+	 */
+	extractSourceMap?: boolean;
 
 	/**
 	 * The options for the module generator.
