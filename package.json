@@ -136,6 +136,8 @@
     "types.d.ts"
   ],
   "scripts": {
+    "debugger": "node --inspect-brk=5858 ./node_modules/webpack/bin/webpack.js --config ./debug/start/webpack.config.js",
+    "start": "node  ./node_modules/webpack/bin/webpack.js --config ./debug/start/webpack.config.js",
     "setup": "node ./setup/setup.js",
     "jest": "node --expose-gc --max-old-space-size=4096 --experimental-vm-modules --trace-deprecation node_modules/jest-cli/bin/jest --logHeapUsage",
     "test": "node --expose-gc --max-old-space-size=4096 --experimental-vm-modules --trace-deprecation node_modules/jest-cli/bin/jest --logHeapUsage",
