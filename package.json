@@ -50,7 +50,6 @@
     "core-js": "^3.6.5",
     "coveralls": "^3.1.0",
     "cspell": "^4.0.63",
-    "css-loader": "^5.0.1",
     "date-fns": "^2.15.0",
     "es5-ext": "^0.10.53",
     "es6-promise-polyfill": "^1.2.0",
@@ -138,6 +137,7 @@
   "scripts": {
     "debugger": "node --inspect-brk=5858 ./node_modules/webpack/bin/webpack.js --config ./debug/start/webpack.config.js",
     "start": "node  ./node_modules/webpack/bin/webpack.js --config ./debug/start/webpack.config.js",
+    "test:plugin":"node --max-old-space-size=4096  node_modules/jest-cli/bin/jest --testMatch \"<rootDir>/debug/**/*.test.js\"",
     "setup": "node ./setup/setup.js",
     "jest": "node --expose-gc --max-old-space-size=4096 --experimental-vm-modules --trace-deprecation node_modules/jest-cli/bin/jest --logHeapUsage",
     "test": "node --expose-gc --max-old-space-size=4096 --experimental-vm-modules --trace-deprecation node_modules/jest-cli/bin/jest --logHeapUsage",
