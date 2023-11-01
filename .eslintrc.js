@@ -46,7 +46,8 @@ module.exports = {
 		"no-warning-comments": [
 			"error",
 			{ terms: ["@ts-ignore"], location: "start" }
-		]
+		],
+		"prettier/prettier": ["error", { "endOfLine": "auto" }]
 	},
 	settings: {
 		jsdoc: {

@@ -22,7 +22,7 @@ module.exports = {
 		// 	name: "哈哈哈"
 		// }),
 		new DependencyPlugin({
-			dirPath: 'modules'
+			dirPath: "modules"
 		})
 	],
 	module: {
@@ -36,5 +36,11 @@ module.exports = {
 				]
 			}
 		]
+	},
+	// 测试enhanced-resolve传参
+	resolve: {
+		alias: {
+			test: "src/test"
+		}
 	}
 };

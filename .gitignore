@@ -21,3 +21,4 @@
 .eslintcache
 package-lock.json
 /debug/**/dist
+/debug/**/node_modules
