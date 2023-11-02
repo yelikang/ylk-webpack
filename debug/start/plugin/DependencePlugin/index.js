@@ -18,6 +18,9 @@ class DependencyPlugin {
 	apply(compiler) {
 		// 监听提交打包文件之前回调
 		compiler.hooks.emit.tapPromise(pluginName, compilation => {
+			// 所有依赖文件
+			// let deps = Array.from(compilation.fileDependencies);
+
 			console.log(chalk.yellow("开始依赖检测... \n"));
 			return new Promise(resolve => {
 				this.depFiles = getDependenceModule(compilation.modules);

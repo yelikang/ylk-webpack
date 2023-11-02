@@ -5,8 +5,9 @@
  */
 
 const path = require("path");
-// const TestPlugin = require("./plugin/test.js");
+const TestPlugin = require("./plugin/tests.js");
 const DependencyPlugin = require("./plugin/DependencePlugin");
+const NewDependencyPlugin = require("./plugin/DependencePlugin/new.js");
 
 module.exports = {
 	// 解析上下文路径为当前webpack.config.js所处路径
@@ -21,8 +22,11 @@ module.exports = {
 		// new TestPlugin({
 		// 	name: "哈哈哈"
 		// }),
-		new DependencyPlugin({
-			dirPath: "modules"
+		// new DependencyPlugin({
+		// 	dirPath: "modules"
+		// })
+		new NewDependencyPlugin({
+			srcPath: "modules"
 		})
 	],
 	module: {
