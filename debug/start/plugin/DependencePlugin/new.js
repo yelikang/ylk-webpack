@@ -12,6 +12,22 @@ class NewDependencePlugin {
 		);
 	}
 	apply(compiler) {
+		// 优化chunk
+		// compiler.hooks.thisCompilation.tap("test", compilation => {
+		// 	compilation.hooks.optimizeChunks.tap("test", chunks => {
+		// 		console.log("chunks");
+		// 	});
+		// });
+
+		// 改变chunk名称
+		// compiler.hooks.thisCompilation.tap("ChangeChunkName", compilation => {
+		// 	compilation.hooks.beforeChunkIds.tap("ChangeChunkName", chunks => {
+		// 		Array.from(chunks).forEach(chunk => {
+		// 			chunk.name = chunk.name || "test-change";
+		// 		});
+		// 	});
+		// });
+
 		compiler.hooks.afterEmit.tapAsync("PluginName", (compilation, cb) => {
 			const deps = Array.from(compilation.fileDependencies);
 			const contextPath = compilation.compiler.context;

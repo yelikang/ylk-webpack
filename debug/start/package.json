@@ -12,6 +12,7 @@
   "devDependencies": {
     "chalk": "^3.0.0",
     "css-loader": "^6.7.3",
-    "fast-glob": "^3.3.1"
+    "fast-glob": "^3.3.1",
+    "webpack": "^5.89.0"
   }
 }
