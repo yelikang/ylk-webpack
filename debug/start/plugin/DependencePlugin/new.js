@@ -36,6 +36,7 @@ class NewDependencePlugin {
 			const allFiles = getSrcAllFiles(srcPath);
 			const unusedFiles = allFiles.filter(file => file && !depFiles[file]);
 			logFileInfo(unusedFiles);
+			cb()
 		});
 	}
 }
