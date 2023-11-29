@@ -29,6 +29,7 @@ class NewDependencePlugin {
 		// });
 
 		compiler.hooks.afterEmit.tapAsync("PluginName", (compilation, cb) => {
+			// fileDependencies是在NormalModuleFactory中，进行resolveResource解析时，通过enhanced-resolve解析出来的
 			const deps = Array.from(compilation.fileDependencies);
 			const contextPath = compilation.compiler.context;
 			const srcPath = path.resolve(contextPath, this._options.srcPath);
@@ -36,7 +37,7 @@ class NewDependencePlugin {
 			const allFiles = getSrcAllFiles(srcPath);
 			const unusedFiles = allFiles.filter(file => file && !depFiles[file]);
 			logFileInfo(unusedFiles);
-			cb()
+			cb();
 		});
 	}
 }
